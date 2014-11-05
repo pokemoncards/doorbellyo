@@ -6,9 +6,10 @@
     cd doorbellyo
     mkvirtualenv doorbellyo
     pip install -r requirements.txt
-    
+    echo 'YO_API_TOKEN = "THEAPIKEYFROMTHATEMAIL"' > config.py
+
 install ngrok to receive requests from the outside world.
-    
+
     brew install ngrok
 
 or
