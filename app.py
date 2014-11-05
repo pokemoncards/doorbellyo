@@ -8,7 +8,8 @@ YO_API_KEY = config.YO_API_TOKEN
 @app.route('/')
 def index():
     count_number = count()
-    return "smello, playa! looks like you have {0} subscribers".format(count_number)
+    return """smello, playa! looks like you have {0} subscribers<br/>
+           <img src=\"http://media.giphy.com/media/YjFiZTA3MDEt/200.gif\"/>""".format(count_number)
 
 @app.route('/count')
 def count():
@@ -54,5 +55,6 @@ def callback():
     return "got a yo from {0}".format(username)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    #app.debug = True
+    app.run()
 
