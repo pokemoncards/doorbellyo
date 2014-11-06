@@ -21,28 +21,34 @@ def count():
     return ":P"
 
 @app.route('/yo/<username>')
-def yo(username):
-    data = {'api_token': YO_API_KEY, 'username': username}
+def yo_route(username):
     link = request.args.get('link')
+    return yo(username, link)
+
+def yo(username, link=None):
+    data = {'api_token': YO_API_KEY, 'username': username}
     if link:
         data['link'] = link
 
     yo_request = requests.post("https://api.justyo.co/yo/",
-                                data=data)
+                               data=data)
 
     if 'result' in yo_request.json() and yo_request.json()['result'] == "OK":
         return "sent yo to {0}!".format(username)
     return "got a dumb error :("
 
 @app.route('/yoall')
-def yoall():
-    data = {'api_token': YO_API_KEY}
+def yoall_route():
     link = request.args.get('link')
+    return yoall(link)
+
+def yoall(link=None):
+    data = {'api_token': YO_API_KEY}
     if link:
         data['link'] = link
 
     yoall_request = requests.post("https://api.justyo.co/yoall/",
-                                data=data)
+                                  data=data)
 
     if yoall_request.text == "{}":
         return "sent yo to everyone!"
