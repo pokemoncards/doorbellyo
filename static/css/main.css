@@ -4,6 +4,12 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+@media (max-width: 430px) {
+    body {
+        font-size: 0.7em;
+    }
+}
+
 h1 {
     font-size: 4em;
     margin: 0;
