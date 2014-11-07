@@ -27,13 +27,13 @@ in another tab:
 
 ## api
 ### /
-your home screen with a subscriber count.
+the home screen with a form to subscribe to a doorbell
 
-### /count
-a subscriber count
+### /count/doorbell
+a subscriber count for `doorbell`
 
 ### /yo/username
 send a yo to `username`
 
 ### /yoall
-send a yo to all your subscribers
+send a yo to all of doorbellyo's subscribers

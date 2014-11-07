@@ -1,0 +1,68 @@
+body {
+    background-color: #FFC117;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 4em;
+    margin: 0;
+    text-align: center;
+}
+
+main {
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+input {
+    background: none;
+    border: none;
+    color: #FFF;
+    display: block;
+    font-size: 2em;
+    margin: .25em auto 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+input:focus {
+    outline: none;
+}
+
+.submit {
+    background: none;
+    border: 1px solid #FFF;
+    border-radius: 1em;
+    color: #FFF;
+    height: 2em;
+    padding: 0 1em .125em;
+    width: auto;
+}
+::-webkit-input-placeholder {
+   color: #FFF;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #FFF;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #FFF;  
+}
+
+:-ms-input-placeholder {  
+   color: #FFF;  
+}
