@@ -102,7 +102,7 @@ def yoall(location=None, link=None):
 def callback():
     """Yo hits this route when doorbellyo is yo'd."""
     username = request.args.get('username', '').upper()
-    yo(username, link="lsvx.com")
+    yo(username, link="http://doorbellyo.com")
     return render_template('message.html', code="Got a Yo from {0}!".format(username))
 
 @app.route('/signup', methods=['POST'])
