@@ -7,7 +7,7 @@ import requests
 import config
 
 app = Flask(__name__)
-YO_API_KEY = config.YO_API_TOKEN
+YO_API_TOKEN = config.YO_API_TOKEN
 es = Elasticsearch()
 
 # Check if index exists:
@@ -27,10 +27,10 @@ def count(doorbell=None):
     # If no doorbell is provided, then check our subscribers.
     if not doorbell:
         get_count = requests.get("https://api.justyo.co/subscribers_count/",
-                                 params={'api_token': YO_API_KEY})
+                                 params={'api_token': YO_API_TOKEN})
 
-        if 'result' in get_count.json() and type(get_count.json()['result']) is int:
-            subscriber_count = str(get_count.json()['result'])
+        if 'count' in get_count.json() and type(get_count.json()['count']) is int:
+            subscriber_count = str(get_count.json()['count'])
             return render_template('count.html', count=subscriber_count, doorbell='doorbellyo')
         else:
             return render_template('message.html', code=400), 400
@@ -59,7 +59,7 @@ def yo_route(username):
 def yo(username, location=None, link=None):
     """Yo any user."""
     username = username.upper()
-    data = {'api_token': YO_API_KEY, 'username': username}
+    data = {'api_token': YO_API_TOKEN, 'username': username}
     if location:
         data['location'] = location
 
@@ -69,7 +69,7 @@ def yo(username, location=None, link=None):
     yo_request = requests.post("https://api.justyo.co/yo/",
                                data=data)
 
-    if 'result' in yo_request.json() and yo_request.json()['result'] == "OK":
+    if 'success' in yo_request.json() and yo_request.json()['success'] == True:
         return 200
     return 400
 
@@ -84,7 +84,7 @@ def yoall_route():
 
 def yoall(location=None, link=None):
     """Yo all of doorbellyo's subscribers."""
-    data = {'api_token': YO_API_KEY}
+    data = {'api_token': YO_API_TOKEN}
     if location:
         data['location'] = location
 
@@ -94,7 +94,7 @@ def yoall(location=None, link=None):
     yoall_request = requests.post("https://api.justyo.co/yoall/",
                                   data=data)
 
-    if yoall_request.text == "{}":
+    if 'success' in yo_request.json() and yo_request.json()['success'] == True:
         return 200
     return 400
 
