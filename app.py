@@ -94,7 +94,7 @@ def yoall(location=None, link=None):
     yoall_request = requests.post("https://api.justyo.co/yoall/",
                                   data=data)
 
-    if 'success' in yo_request.json() and yo_request.json()['success'] == True:
+    if 'success' in yoall_request.json() and yoall_request.json()['success'] == True:
         return 200
     return 400
 
