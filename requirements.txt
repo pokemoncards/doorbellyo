@@ -3,7 +3,7 @@ Jinja2==2.7.3
 MarkupSafe==0.23
 Werkzeug==0.9.6
 astroid==1.2.1
-certifi==14.05.14
+certifi==2022.12.7
 elasticsearch==1.2.0
 itsdangerous==0.24
 logilab-common==0.63.0
